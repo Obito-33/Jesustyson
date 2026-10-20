@@ -996,6 +996,181 @@
         transform: none;
       }
     }
+/* GAME STORE */
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.game-card {
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 28, 50, 0.94),
+    rgba(7, 13, 26, 0.97)
+  );
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 200, 255, 0.48);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.3);
+}
+
+.game-image-wrap {
+  position: relative;
+  height: 245px;
+  overflow: hidden;
+  background: #0a1425;
+}
+
+.game-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.07);
+}
+
+.game-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(3, 7, 18, 0.96),
+    rgba(3, 7, 18, 0.05) 75%
+  );
+  pointer-events: none;
+}
+
+.game-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 50px;
+  color: white;
+  background: rgba(3, 7, 18, 0.78);
+  backdrop-filter: blur(12px);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.game-image-title {
+  position: absolute;
+  right: 18px;
+  bottom: 15px;
+  left: 18px;
+  margin: 0;
+  color: white;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+}
+
+.game-content {
+  padding: 23px;
+}
+
+.game-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--cyan);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.game-description {
+  min-height: 66px;
+  margin: 12px 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.game-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.game-tag {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 10px;
+}
+
+.game-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.game-actions .btn {
+  width: 100%;
+  min-width: 0;
+  padding-inline: 10px;
+  font-size: 12px;
+}
+
+.game-actions .btn-secondary {
+  border-color: rgba(0, 200, 255, 0.22);
+}
+
+.game-notice {
+  margin-top: 15px;
+  color: #8493a9;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .game-image-wrap {
+    height: clamp(190px, 55vw, 280px);
+  }
+
+  .game-description {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .game-content {
+    padding: 17px;
+  }
+
+  .game-actions {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -1159,7 +1334,195 @@
         </div>
       </div>
     </section>
+<!-- FEATURED GAMES STORE -->
+<section class="section" id="games">
+  <div class="container">
 
+    <div class="section-heading reveal">
+      <div class="eyebrow">
+        <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+        FEATURED GAMES
+      </div>
+
+      <h2 style="margin-top: 20px;">
+        Choose Your <span class="gradient-text">Next Game</span>
+      </h2>
+
+      <p>
+        Explore our featured PC games. Select a game to view
+        its official store page or contact us through WhatsApp.
+      </p>
+    </div>
+
+    <div class="games-grid">
+
+      <!-- EURO TRUCK SIMULATOR 2 -->
+      <article
+        class="game-card reveal"
+        data-game-card
+        data-game-name="Euro Truck Simulator 2 ETS2 truck driving simulator simulation PC"
+      >
+
+        <div class="game-image-wrap">
+
+          <img
+            class="game-image"
+            src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/header.jpg"
+            alt="Euro Truck Simulator 2 game artwork"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          >
+
+          <div class="game-image-overlay"></div>
+
+          <span class="game-badge">
+            <i class="fa-solid fa-truck" aria-hidden="true"></i>
+            SIMULATION
+          </span>
+
+          <h3 class="game-image-title">
+            EURO TRUCK<br>SIMULATOR 2
+          </h3>
+
+        </div>
+
+        <div class="game-content">
+
+          <div class="game-category">
+            <i class="fa-solid fa-road" aria-hidden="true"></i>
+            Truck Driving
+          </div>
+
+          <p class="game-description">
+            Drive across European roads, deliver cargo, explore
+            cities, and build your own virtual trucking business.
+          </p>
+
+          <div class="game-tags">
+            <span class="game-tag">PC Game</span>
+            <span class="game-tag">Driving</span>
+            <span class="game-tag">Simulation</span>
+          </div>
+
+          <div class="game-actions">
+
+            <a
+              class="btn btn-secondary"
+              href="https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square"
+                 aria-hidden="true"></i>
+              Official Store
+            </a>
+
+            <a
+              class="btn btn-primary buy-game"
+              href="https://wa.me/919361800671?text=Hi%20JesusTyson33%2C%20I%20am%20interested%20in%20Euro%20Truck%20Simulator%202%20(ETS2).%20Please%20share%20the%20official%20game%20link%20and%20purchase%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-whatsapp"
+                 aria-hidden="true"></i>
+              Buy / Enquire
+            </a>
+
+          </div>
+
+          <p class="game-notice">
+            Purchase through the official store. WhatsApp is
+            available for enquiries about the game.
+          </p>
+
+        </div>
+      </article>
+
+      <!-- GRAND THEFT AUTO V -->
+      <article
+        class="game-card reveal"
+        data-game-card
+        data-game-name="Grand Theft Auto V GTA 5 GTA V open world action adventure PC"
+      >
+
+        <div class="game-image-wrap">
+
+          <img
+            class="game-image"
+            src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3240220/header.jpg"
+            alt="Grand Theft Auto V game artwork"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          >
+
+          <div class="game-image-overlay"></div>
+
+          <span class="game-badge">
+            <i class="fa-solid fa-city" aria-hidden="true"></i>
+            OPEN WORLD
+          </span>
+
+          <h3 class="game-image-title">
+            GRAND THEFT<br>AUTO V
+          </h3>
+
+        </div>
+
+        <div class="game-content">
+
+          <div class="game-category">
+            <i class="fa-solid fa-car" aria-hidden="true"></i>
+            Action & Adventure
+          </div>
+
+          <p class="game-description">
+            Explore Los Santos, experience an open-world adventure,
+            and discover the many activities offered by GTA V.
+          </p>
+
+          <div class="game-tags">
+            <span class="game-tag">PC Game</span>
+            <span class="game-tag">Open World</span>
+            <span class="game-tag">Action</span>
+          </div>
+
+          <div class="game-actions">
+
+            <a
+              class="btn btn-secondary"
+              href="https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_Enhanced/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square"
+                 aria-hidden="true"></i>
+              Official Store
+            </a>
+
+            <a
+              class="btn btn-primary buy-game"
+              href="https://wa.me/919361800671?text=Hi%20JesusTyson33%2C%20I%20am%20interested%20in%20Grand%20Theft%20Auto%20V%20(GTA%205).%20Please%20share%20the%20official%20game%20link%20and%20purchase%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-whatsapp"
+                 aria-hidden="true"></i>
+              Buy / Enquire
+            </a>
+
+          </div>
+
+          <p class="game-notice">
+            Purchase through the official store. WhatsApp is
+            available for enquiries about the game.
+          </p>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
     <!-- HUB FEATURES -->
     <section class="section">
       <div class="container">
@@ -1406,41 +1769,64 @@ searchStatus.className = "search-status";
 
         searchStatus.className = "search-status";
       });
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-      searchForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+  const query = searchInput.value
+    .trim()
+    .toLowerCase();
 
-        const query = searchInput.value.trim();
+  const gameCards = document.querySelectorAll("[data-game-card]");
 
-        if (!query) {
-          searchStatus.textContent =
-            "Enter a search term to try the preview.";
+  if (!query) {
+    searchStatus.textContent =
+      "Enter a game name to search.";
 
-          searchStatus.className = "search-status error";
-          searchInput.focus();
-          return;
-        }
+    searchStatus.className = "search-status error";
+    searchInput.focus();
+    return;
+  }
 
-        searchStatus.textContent =
-          'Demo only: "' +
-          query +
-          '" was entered successfully. Real game search will be added in a future update.';
+  let matches = 0;
 
-        searchStatus.className = "search-status success";
-      });
+  gameCards.forEach((card) => {
+    const searchableText = (
+      card.dataset.gameName + " " + card.textContent
+    ).toLowerCase();
 
-      clearButton.addEventListener("click", () => {
-        searchInput.value = "";
-        updateClearButton();
+    const isMatch = searchableText.includes(query);
 
-        searchStatus.textContent =
-          "Search cleared. Enter a new search term to try the preview.";
+    card.hidden = !isMatch;
 
-        searchStatus.className = "search-status";
+    if (isMatch) {
+      matches++;
+    }
+  });
 
-        searchInput.focus();
-      });
+  const gamesSection = document.getElementById("games");
 
+  gamesSection.hidden = false;
+
+  if (matches > 0) {
+    searchStatus.textContent =
+      `Found ${matches} matching game${matches === 1 ? "" : "s"}.`;
+
+    searchStatus.className = "search-status success";
+
+    gamesSection.scrollIntoView({
+      behavior: window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches ? "auto" : "smooth",
+      block: "start"
+    });
+  } else {
+    searchStatus.textContent =
+      `No games found for "${query}". Try "GTA" or "truck".`;
+
+    searchStatus.className = "search-status error";
+  }
+});
+      
       /*
        * SCROLL REVEAL
        *
@@ -1501,6 +1887,14 @@ searchStatus.className = "search-status";
       });
 
     });
+document.querySelectorAll("[data-game-card]").forEach((card) => {
+card.hidden = false;
+});
+
+const gamesSection = document.getElementById("games");
+if (gamesSection) {
+gamesSection.hidden = false;
+}
   </script>
 
 </body>
